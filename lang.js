@@ -5,26 +5,32 @@
     console.log(document.cookie);
   }
 
-// Cette fonction recupère les données contenues dans le fichier de la langue dont le path a été passé en paramètre
+// Cette fonction envoie une requête AJAX qui recupère les données de langue
 
   async function retrieveData(){
-    const language = JSON.stringify(document.cookie);
-    const fullPath = "language/" + language + '.json';
-    console.log('le string : ' + fullPath);
+    let langCookie = document.cookie.split('=');
+    let languageChar = langCookie[1];
+    console.log('mychar :  ' + languageChar); // Affichage
+
+    let fullPath = "languages/" + languageChar + '.json';
+    console.log('chemin du fichier : ' + fullPath); // Affichage
 
     const response = await fetch(fullPath);
     const jsonFormat = await response.json()
     .then(data => {
       getTags(data);
-      // console.log(data);
+      console.log(data);
     })
   }
 
-function getLanguage(lang){
-  const langCharacter = lang;
-  setCookie(langCharacter);
-  retrieveData();
-}
+// Cette fonction est appelé par un event click et passe en argument le caractère de la langue correspondant
+
+  function getLanguage(langChar){
+    const getChar = langChar;
+    setCookie(getChar);
+    retrieveData();
+  }
+
 // Cette fonction cible les éléments du DOM sur lesquels les informations de langue seront affichées
 
 function getTags(data){
