@@ -5,16 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Translator</title>
-
+  <style>
+    div{
+      background-color: #999;
+      padding: 20px;
+      width: 500px;
+      margin: auto;
+    }
+    h2{
+      color: white;
+    }
+    button{
+      background-color: #000;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Select a language</h2>
-  <button onclick="getLanguage('fr')">Français</button>
-  <button onclick="getLanguage('en')">Anglais</button>
-  <p id="first"></p>
-  <p id="second"></p>
-  <p id="third"></p>
-  <p id="cookie"></p>
+  <div>
+    <h2>Select a language</h2>
+    <button data-lang-btn="fr">Français</button>
+    <button data-lang-btn="en">Anglais</button>
+    <button data-lang-btn="es">Espagnol</button>
+    <p id="first">Nom complet</p>
+    <p id="second">Prénom</p>
+    <p id="third">Nom</p>
+  </div>
   <script src="lang.js"></script>
 </body>
 </html>
