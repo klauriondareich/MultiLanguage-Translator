@@ -2,20 +2,20 @@
 
   function setCookie(lang){
     document.cookie = "lang=" + lang + ';path=/';
-    console.log("dans le cookie " + document.cookie);
+    console.log("dans le cookie " + document.cookie); // Affichage
   }
 
 //  Cette fonction recupère les cookies
 
   function getCookie() {
     let cookies = document.cookie.split(';');
-    console.log("acces cookies " + cookies);
+    console.log("access cookies " + cookies); // Affichage
 
     for(let i = 0; i < cookies.length; i++) {
       let cookie = cookies[i];
       cookie = cookie.substring(1);
-      if(cookie === 'lang=en' || cookie === 'lang=fr'){
-          console.log(cookie);
+      if(cookie === 'lang=en' || cookie === 'lang=fr' || cookie === 'lang=es'){
+          console.log(cookie); // Affichage
           retrieveData(cookie);
       }
     }
@@ -45,6 +45,7 @@
   function getLanguage(langChar) {
    const getChar = langChar;
    setCookie(getChar);
+   console.log("getchar : " + getChar);
    getCookie();
   }
 
@@ -58,4 +59,14 @@ function getTags(data){
 }
 
 // Cette fonction est appelé lorque la page est rafraîchit
-window.onbeforeunload = getCookie();
+ window.onbeforeunload = getCookie();
+
+// Recupération de la valeur de l'attribut personnalisé data-lang-btn après un Event click
+
+ const data_btn = document.querySelectorAll('[data-lang-btn]');
+  for(let getValue of data_btn) {
+    getValue.addEventListener('click', function(){
+      console.log(this.dataset); // Affichage
+      getLanguage(this.dataset.langBtn);
+    })
+  }
