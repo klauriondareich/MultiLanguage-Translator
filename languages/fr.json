@@ -1,7 +1,7 @@
 {
   "fullname" : "Nom complet",
-  "firstname" : "Nom",
-  "lastname" : "Prenom",
+  "firstname" : "Prénom",
+  "lastname" : "Nom",
   "birthdate": "Date de naissance",
   "age": "Age"
 }

@@ -1,0 +1,7 @@
+{
+  "fullname" : "Nombre completo",
+  "firstname" : "Nombre de pila",
+  "lastname" : "apellido",
+  "birthdate": "Fecha de nacimiento",
+  "age": "Años"
+}
