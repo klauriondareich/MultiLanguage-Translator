@@ -2,6 +2,5 @@
   "fullname" : "Full name",
   "firstname" : "First name",
   "lastname" : "Last Name",
-  "birthdate": "Birthdate",
-  "age": "Age"
+  "birthday": "birthday"
 }
