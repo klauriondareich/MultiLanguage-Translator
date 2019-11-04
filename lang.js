@@ -37,12 +37,12 @@
     .then(data => {
       getTags(data);
       console.log("mes données : " + data);
-    })
+    }).catch(error => console.error("AKA ! une erreur est survenue lors du chargement des données.", error));
   }
 
 // Cette fonction est appelé par un event click et passe en argument le caractère de la langue correspondant
 
-  function getLanguage(langChar) {
+ function getLanguage(langChar) {
    const getChar = langChar;
    setCookie(getChar);
    console.log("getchar : " + getChar);
@@ -53,12 +53,28 @@
 
 function getTags(data){
   let getData = data;
-  document.getElementById("first").innerHTML = getData.fullname;
-  document.getElementById("second").innerHTML = getData.firstname;
-  document.getElementById("third").innerHTML = getData.lastname;
+
+  const keysArray = [];
+  const dataAttributesArray = document.querySelectorAll('[data-lang-content]');
+
+  for(let attribute of dataAttributesArray){
+    keysArray.push(attribute.dataset.langContent);
+  }
+  console.log(keysArray); // Affichage
+
+  let get_key, selectedElt = '';
+  for (let item in data){
+    console.log('item : '+ data[item]); // Affichage
+    get_key = keysArray.find(element => item === element);
+
+    selectedElt = "[data-lang-content='" + get_key + "']";
+    console.log(document.querySelector(selectedElt).innerHTML); // Affichage
+    document.querySelector(selectedElt).innerHTML = data[item];
+  }
 }
 
 // Cette fonction est appelé lorque la page est rafraîchit
+
  window.onbeforeunload = getCookie();
 
 // Recupération de la valeur de l'attribut personnalisé data-lang-btn après un Event click
@@ -70,3 +86,5 @@ function getTags(data){
       getLanguage(this.dataset.langBtn);
     })
   }
+
+  // -----------------------------------
