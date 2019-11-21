@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Translator</title>
+  <style>
+    div.container{
+      padding: 20px;
+      width: 500px;
+      margin: auto;
+      background: #1A7391;
+    }
+    h2{
+      color: white;
+    }
+    button{
+      background-color: #000;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      height: 80px;
+      width: 80px;
+      border-radius: 70px;
+    }
+    .content{
+      float: right;
+      border: 1px solid black;
+      margin-right: 80px;
+      padding: 30px;
+      font-size: 18px;
+      color: white;
+    }
+    span{
+      display: block;
+    }
+    .button{  padding-bottom: 20px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Clik to change the language</h2>
+    <div class="content">
+      <span data-lang-content="fullname">Nom complet</span>
+      <span data-lang-content="firstname">Prénom</span>
+      <span data-lang-content="lastname">Nom</span>
+      <span data-lang-content="birthday">Anniversaire</span>
+      <span data-lang-content="age">age</span>
+    </div>
+    <div class="button">
+      <button data-lang-btn="fr">Français</button>
+      <button data-lang-btn="en">Anglais</button><br>
+      <button data-lang-btn="es">Espagnol</button>
+      <button data-lang-btn="ch">Chinois</button>
+    </div>
+  </div>
+  <script src="lang.js"></script>
+</body>
+</html>

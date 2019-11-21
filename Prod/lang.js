@@ -1,25 +1,23 @@
+/*
+---- PROD VERSION ---
+ ---- Released by DreamAndCode 19/12/21:16:30
+*/
+
+
 //  Cette fonction crée un cookie et stocke le string 'en' ou 'fr'
 
-  function setCookie(lang){
-    document.cookie = "lang=" + lang + ';path=/';
-    console.log("dans le cookie " + document.cookie); // Affichage
-  }
+  function setCookie(lang){document.cookie = "lang=" + lang + ';path=/';}
 
 //  Cette fonction recupère les cookies
 
   function getCookie() {
     let cookies = document.cookie.split(';');
-    console.log("access cookies : " + cookies); // Affichage
 
     for(let i = 0; i < cookies.length; i++) {
       let cookie = cookies[i];
       cookie = cookie.substring(1);
-      console.log("chaine de caractère : " + cookie);
-      console.log(cookie + " Type : " + typeof(cookie));
-      if(cookie .startsWith('lang')){
-          console.log("COOKIE " + cookie); // Affichage
-           retrieveData(cookie);
-       }
+
+      if(cookie .startsWith('lang')){retrieveData(cookie);}
     }
   }
 
@@ -29,16 +27,13 @@
 
     let langCookie = cookie.split('=');
     let languageChar = langCookie[1];
-    console.log('mychar +++:  ' + languageChar); // Affichage
 
     let fullPath = "languages/" + languageChar + '.json';
-    console.log('chemin du fichier : ' + fullPath); // Affichage
 
     const response = await fetch(fullPath);
     const jsonFormat = await response.json()
     .then(data => {
       getTags(data);
-      console.log("mes données : " + data);
     }).catch(error => console.error("AKA ! une erreur est survenue lors du chargement des données.", error));
   }
 
@@ -47,7 +42,6 @@
  function getLanguage(langChar) {
    const getChar = langChar;
    setCookie(getChar);
-   console.log("getchar : " + getChar);
    getCookie();
   }
 
@@ -62,16 +56,13 @@ function getTags(data){
   for(let attribute of dataAttributesArray){
     keysArray.push(attribute.dataset.langContent);
   }
-  console.log(keysArray); // Affichage
 
-  let get_key, selectedElt = '';
+  let get_key, selected_element = '';
   for (let item in data){
-    console.log('item : '+ data[item]); // Affichage
     get_key = keysArray.find(element => item === element);
 
-    selectedElt = "[data-lang-content='" + get_key + "']";
-    console.log(document.querySelector(selectedElt).innerHTML); // Affichage
-    document.querySelector(selectedElt).innerHTML = data[item];
+    selected_element = "[data-lang-content='" + get_key + "']";
+    document.querySelector(selected_element).innerHTML = data[item];
   }
 }
 
@@ -84,7 +75,6 @@ function getTags(data){
  const data_btn = document.querySelectorAll('[data-lang-btn]');
   for(let getValue of data_btn) {
     getValue.addEventListener('click', function(){
-      console.log(this.dataset); // Affichage
       getLanguage(this.dataset.langBtn);
     })
   }
