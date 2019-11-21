@@ -9,15 +9,17 @@
 
   function getCookie() {
     let cookies = document.cookie.split(';');
-    console.log("access cookies " + cookies); // Affichage
+    console.log("access cookies : " + cookies); // Affichage
 
     for(let i = 0; i < cookies.length; i++) {
       let cookie = cookies[i];
       cookie = cookie.substring(1);
-      if(cookie === 'lang=en' || cookie === 'lang=fr' || cookie === 'lang=es'){
-          console.log(cookie); // Affichage
-          retrieveData(cookie);
-      }
+      console.log("chaine de caractère : " + cookie);
+      console.log(cookie + " Type : " + typeof(cookie));
+      if(cookie .startsWith('lang')){
+          console.log("COOKIE " + cookie); // Affichage
+           retrieveData(cookie);
+       }
     }
   }
 
