@@ -5,6 +5,8 @@ Build by OkaCode Community/Ecole241
 
 We are working to better the solution for using it efficiently. Your contribution will be helpful.
 
+![Okalib js](https://raw.githubusercontent.com/klauriondareich/MultiLanguage-Translator/master/logo.png "OkaLib JS")
+
 ## WHAT IS OKALIB JS ?
 
 OkaLib js is a javascript library for multi language site or app. The aim is about giving an efficient and easy to integrate library for developers. This has been made with ES6 standards.
