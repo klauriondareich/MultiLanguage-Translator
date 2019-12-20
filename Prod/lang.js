@@ -15,7 +15,7 @@
 
     for(let i = 0; i < cookies.length; i++) {
       let cookie = cookies[i];
-      cookie = cookie.substring(1);
+      cookie = cookie.substring();
 
       if(cookie .startsWith('lang')){retrieveData(cookie);}
     }
