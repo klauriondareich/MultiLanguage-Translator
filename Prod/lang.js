@@ -1,14 +1,19 @@
 /*
 ---- PROD VERSION ---
- ---- Released by DreamAndCode 19/12/21:16:30
+ ---- Released by K Laurion Dareich 19/12/21:16:30
+
+ -------------------------------------------------------------------------------
+ TRANSLATING A WEBSITE IN MULTIPLE LANGUAGES WITHOUT USING A LIBRARY OF FRAMEWORK
+ ONLY PURE JAVASCRIPT (ES6)
+ --------------------------------------------------------------------------------
 */
 
 
-//  Cette fonction crée un cookie et stocke le string 'en' ou 'fr'
+//  This func creates and stocks in cookie the language String 
 
   function setCookie(lang){document.cookie = "lang=" + lang + ';path=/';}
 
-//  Cette fonction recupère les cookies
+//  This func gets strings stored in cookie
 
   function getCookie() {
     let cookies = document.cookie.split(';');
@@ -21,7 +26,7 @@
     }
   }
 
-// Cette fonction envoie une requête AJAX qui recupère les données de langue
+// Sending AJAX request to data
 
   async function retrieveData(cookie) {
 
@@ -31,13 +36,13 @@
     let fullPath = "languages/" + languageChar + '.json';
 
     const response = await fetch(fullPath);
-    const jsonFormat = await response.json()
+    await response.json()
     .then(data => {
       getTags(data);
-    }).catch(error => console.error("AKA ! une erreur est survenue lors du chargement des données.", error));
+    }).catch(error => console.error("Zut! Error happens", error));
   }
 
-// Cette fonction est appelé par un event click et passe en argument le caractère de la langue correspondant
+// Getting language chart: Called it when you click or select a language
 
  function getLanguage(langChar) {
    const getChar = langChar;
@@ -45,10 +50,9 @@
    getCookie();
   }
 
-// Cette fonction cible les éléments du DOM sur lesquels les informations de langue seront affichées
+// Passing data to the HTML view
 
 function getTags(data){
-  let getData = data;
 
   const keysArray = [];
   const dataAttributesArray = document.querySelectorAll('[data-lang-content]');
@@ -66,11 +70,11 @@ function getTags(data){
   }
 }
 
-// Cette fonction est appelé lorque la page est rafraîchit
+// Refresh page
 
  window.onbeforeunload = getCookie();
 
-// Recupération de la valeur de l'attribut personnalisé data-lang-btn après un Event click
+// getting value from data-lang-btn customized attribute
 
  const data_btn = document.querySelectorAll('[data-lang-btn]');
   for(let getValue of data_btn) {
@@ -79,4 +83,3 @@ function getTags(data){
     })
   }
 
-  // -----------------------------------
