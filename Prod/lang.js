@@ -3,7 +3,7 @@
  ---- Released by K Laurion Dareich 19/12/21:16:30
 
  -------------------------------------------------------------------------------
- TRANSLATING A WEBSITE IN MULTIPLE LANGUAGES WITHOUT USING A LIBRARY OF FRAMEWORK
+ TRANSLATING A WEBSITE IN MULTIPLE LANGUAGES WITHOUT USING JQUERY OR ANOTHER LIBRARY
  ONLY PURE JAVASCRIPT (ES6)
  --------------------------------------------------------------------------------
 */
