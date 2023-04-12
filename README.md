@@ -65,4 +65,4 @@ and the job is done ...
 
 
 ## WHAT THE CODE DOES?
-When a user wants to switch the site in another language, they select the language. Behind an event is called, that event gets the code of the language passed in the button and call the json file to load. Data is loading by making an AJAX call. Once Data is loaded its passed to the html page. This is the main principal behind.
+When a user wants to switch the site in another language, they select the language. Behind an event is called, that event gets the code of the language passed in the button and call the json file to load. Data is loading by making an AJAX call. Once Data is loaded its passed to the html page. This is the main principle behind.
